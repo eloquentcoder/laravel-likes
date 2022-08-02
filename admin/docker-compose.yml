@@ -4,9 +4,12 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-
     ports:
-      -8000:8000
+      - 8000:8000
+    volumes:
+      - .:/app
+    depends_on:
+      - admin_db
 
   admin_db:
     image: mysql:latest
